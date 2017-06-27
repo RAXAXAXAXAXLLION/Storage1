@@ -1,0 +1,13 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script><script>
+k=[]
+socket=io()
+onkeydown=onkeyup=function(e){k[e.keyCode]=e.type=="keydown"}
+setInterval(function(){for(i=0;i<300;i++){if(k[i]){socket.emit(i)}}},1)
+setInterval(function(){socket.emit("c",{width:innerWidth,height:innerHeight})},20)
+document.write(".")
+document.body.innerHTML=""
+document.body.style.margin="0 0 0 0"
+document.body.style.backgroundColor="black"
+document.body.style.color="white"
+socket.on('output',function(e){document.body.style.backgroundImage="url(e.id+'.png')"})
+</script>
