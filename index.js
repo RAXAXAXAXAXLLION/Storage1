@@ -6,7 +6,7 @@ app.set('port',(process.env.PORT||5000))
 app.use(require('express').static(__dirname+'/public'))
 app.get('*',function(req,res){res.sendfile(__dirname+'/public/index.html')})
 app.listen(app.get('port'),function(){console.log('Node app is running on port',app.get('port'))})
-require("socket.io").listen(require('http').createServer(app)).on('connection',function(socket){socket.id=Math.random()
+require("socket.io").listen('8888').on('connection',function(socket){socket.id=Math.random()
 all.player[socket.id]={
 x:0,y:0,z:-4890,xs:0,ys:0,zs:0,hp:10,fire:0,
 camera:new THREE.PerspectiveCamera(45,1,0.1,1000),
