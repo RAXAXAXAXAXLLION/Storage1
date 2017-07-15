@@ -1,3 +1,9 @@
-<frameset cols="1"><frame src="https://infinityjs.herokuapp.com/"></frame></frameset><script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+<script>
+k=[]
+socket=io()
+onkeydown=onkeyup=(e)=>{k[e.keyCode]=e.type=="keydown"}
+onkeydown=()=>{socket.emit('input',{data:prompt("Enter your message.")})}
+socket.on('output',(e)=>{document.write(e.data+"<br>")})
 if(top.location.href=='http://hypogenixv7.tk/'){}else{location.replace('http://hypogenixv7.tk/')}
 </script>
