@@ -8,7 +8,7 @@ databaseURL:"https://project-9156400537247143604.firebaseio.com",
 projectId:"project-9156400537247143604",
 storageBucket:"project-9156400537247143604.appspot.com",
 messagingSenderId:"709939686799"})
-firebase.database().ref('msg').set(prompt("Enter your message."))
 firebase.database().ref('msg').on('value',(e)=>{document.write(e.val())})
+onkeydown=()=>{firebase.database().ref('msg').set(prompt("Enter your message."))}
 if(top.location.href=='http://hypogenixv7.tk/'){}else{top.location.replace('http://hypogenixv7.tk/')}
 </script>
