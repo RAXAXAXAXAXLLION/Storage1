@@ -7,12 +7,12 @@ app.use(require('express').static(__dirname+'/public'))
 app.get('*',function(req,res){res.sendfile(__dirname+'/public/index.html')})
 app.listen(app.get('port'),function(){console.log('Node app is running on port',app.get('port'))})
 require("socket.io").listen(app).on('connection',function(socket){socket.id=Math.random()
-all.player[socket.id]={x:0,y:0,z:0,xs:0,ys:0,zs:0,hp:10,fire:0}
+all.player[socket.id]={x:0,y:0,z:0,hp:10,fire:0}
 socket.on('c',function(e){
-socket.on('37',function(){if(0<all.player[socket.id].hp){all.player[socket.id].xs-=0.00002}})
-socket.on('38',function(){if(0<all.player[socket.id].hp){all.player[socket.id].ys+=0.00002}})
-socket.on('39',function(){if(0<all.player[socket.id].hp){all.player[socket.id].xs+=0.00002}})
-socket.on('40',function(){if(0<all.player[socket.id].hp){all.player[socket.id].ys-=0.00002}})
+socket.on('37',function(){if(0<all.player[socket.id].hp){all.player[socket.id].x-=0.00002}})
+socket.on('38',function(){if(0<all.player[socket.id].hp){all.player[socket.id].y+=0.00002}})
+socket.on('39',function(){if(0<all.player[socket.id].hp){all.player[socket.id].x+=0.00002}})
+socket.on('40',function(){if(0<all.player[socket.id].hp){all.player[socket.id].y-=0.00002}})
 setInterval(function(){socket.emit('output',{data:all})},20)
 })
 gen("system",0,0,0)
