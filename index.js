@@ -15,4 +15,3 @@ socket.on('39',function(){if(0<all.player[socket.id].hp){all.player[socket.id].x
 socket.on('40',function(){if(0<all.player[socket.id].hp){all.player[socket.id].y-=0.00002}})
 setInterval(function(){socket.emit('output',{data:all})},20)
 })
-gen("system",0,0,0)
